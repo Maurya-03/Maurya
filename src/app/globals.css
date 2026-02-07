@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@variant light (.light &);
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}

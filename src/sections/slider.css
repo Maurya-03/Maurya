@@ -1,0 +1,286 @@
+.projects-slider {
+  display: grid;
+  grid-template-columns: 55% 1px 45%;
+  gap: 32px;
+  height: 520px;
+  position: relative;
+  pointer-events: auto;
+}
+
+.slider-left {
+  position: relative;
+  height: 100%;
+  pointer-events: none; /* 🔥 slider visuals ignore clicks */
+}
+
+.slider-left .slider-arrow {
+  pointer-events: auto; /* arrows still clickable */
+}
+
+.slider-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.slider-item {
+  position: absolute;
+  width: 320px;
+  height: 480px;
+  transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease;
+  pointer-events: none; /* 🔥 THIS FIXES BUTTONS */
+}
+
+.visual-card {
+  width: 320px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.visual-image {
+  height: 240px;
+  background: #111;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.visual-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.visual-card h4 {
+  color: #2afeb7;
+  font-size: 18px;
+  margin: 0;
+}
+
+.visual-card .tagline {
+  color: #aaa;
+  font-size: 14px;
+  margin: 0;
+}
+
+.visual-card .description {
+  color: #ccc;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
+
+.slider-arrow {
+  position: absolute;
+  bottom: -100px; /* completely separate below slider */
+  width: 120px;
+  height: 44px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border: none;
+  z-index: 50;          /*  FORCE ABOVE CARDS */
+  pointer-events: auto; /* ensure clickable */
+}
+
+.light .slider-arrow {
+  background: rgba(0,0,0,0.08);
+  color: black;
+}
+
+.slider-arrow.left {
+  left: 25px;
+}
+
+.slider-arrow.right {
+  left: 170px;
+}
+
+.slider-divider {
+  background: rgba(255,255,255,0.15);
+}
+
+.slider-right {
+  color: #ccc;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+}
+
+/* Custom scrollbar for slider-right */
+.slider-right::-webkit-scrollbar {
+  width: 6px;
+}
+
+.slider-right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slider-right::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 999px;
+}
+
+.slider-right:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(42, 254, 183, 0.35);
+}
+
+.slider-right:hover::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(42, 254, 183, 0.6);
+}
+
+.slider-right:hover {
+  scrollbar-color: rgba(42, 254, 183, 0.35) transparent;
+}
+
+.project-title {
+  font-size: 36px;
+  color: #2afeb7;
+  margin-bottom: 12px;
+}
+
+.project-desc {
+  margin-bottom: 20px;
+}
+
+.github-link {
+  color: #2afeb7;
+  display: inline-block;
+  margin-top: 16px;
+}
+
+/* ProjectGridCard styles */
+.grid-card {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(42, 254, 183, 0.2);
+}
+
+.grid-image {
+  height: 200px;
+  background: #222;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.grid-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grid-card h4 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.grid-card .tagline {
+  font-size: 14px;
+  margin: 0;
+}
+
+.grid-card .description {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
+
+/* New project details styles */
+.project-details {
+  text-align: left;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.project-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #2afeb7;
+  margin-bottom: 12px;
+}
+
+.project-summary {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.section-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2afeb7;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.section-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-list li {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.action-buttons {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  border: 1px solid #2afeb7;
+  color: #2afeb7;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(42, 254, 183, 0.1);
+}
+
+.btn-primary {
+  padding: 8px 16px;
+  background: #2afeb7;
+  color: black;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #2afeb7cc;
+}
