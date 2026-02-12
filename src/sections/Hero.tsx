@@ -71,6 +71,7 @@ export default function Hero() {
             <a
               href="/files/Maurrya.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 text-sm font-medium border border-[#2afeb7] text-[#2afeb7] hover:bg-[#2afeb7] hover:text-black transition"
             >
               Resume
@@ -79,16 +80,25 @@ export default function Hero() {
         </div>
 
         <div className="flex gap-4 text-gray-600 dark:text-gray-400 light:text-gray-700 mt-[50px]">
-          <a href="https://github.com/Maurya-03" target="_blank">
+          <a
+            href="https://github.com/Maurya-03"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Github className="w-5 h-5 hover:text-[#2afeb7] transition" />
           </a>
           <a
             href="https://www.linkedin.com/in/maurya-c-r-20491b2b6"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <Linkedin className="w-5 h-5 hover:text-[#2afeb7] transition" />
           </a>
-          <a href="https://instagram.com/maurya.cr_05" target="_blank">
+          <a
+            href="https://instagram.com/maurya.cr_05"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Instagram className="w-5 h-5 hover:text-[#2afeb7] transition" />
           </a>
         </div>
