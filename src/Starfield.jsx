@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useMemo } from "react";
 
 const Starfield = ({
   speed = 0.2,
@@ -8,6 +8,16 @@ const Starfield = ({
   globalScale = 0.5, 
 }) => {
   const canvasRef = useRef(null);
+
+  // Optimize star count based on device performance and screen size
+  const optimizedStarCount = useMemo(() => {
+    const isMobile = window.innerWidth < 768;
+    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
+    
+    if (isLowEnd) return Math.min(starCount * 0.3, 50);
+    if (isMobile) return Math.min(starCount * 0.6, 100);
+    return starCount;
+  }, [starCount]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -33,7 +43,7 @@ const Starfield = ({
 
     const initStars = (virtualWidth, virtualHeight) => {
       stars = [];
-      for (let i = 0; i < starCount; i++) {
+      for (let i = 0; i < optimizedStarCount; i++) {
         const layer = Math.floor(Math.random() * 3); 
         let z, size;
 
@@ -105,7 +115,7 @@ const Starfield = ({
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [speed, backgroundColor, starColor, starCount, globalScale]);
+  }, [speed, backgroundColor, starColor, optimizedStarCount, globalScale]);
 
   return (
     <canvas

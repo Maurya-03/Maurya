@@ -23,6 +23,7 @@ export default function ProjectModal({
         <p className="text-gray-600 dark:text-gray-400 light:text-gray-600 mb-4">
           {project.fullDesc}
         </p>
+        
 
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tech.map((t) => (

@@ -28,7 +28,10 @@ export default function Hero() {
   }, [charIndex, roleIndex]);
 
   return (
-    <section className="min-h-screen flex items-center px-24 transition-colors">
+    <section
+      id="home"
+      className="min-h-screen flex items-center px-24 transition-colors"
+    >
       <div className="max-w-3xl">
         {/* Small intro */}
         <p className="text-sm tracking-wide text-gray-500 dark:text-gray-400 light:text-gray-700 mb-3">

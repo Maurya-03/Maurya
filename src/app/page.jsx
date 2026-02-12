@@ -1,13 +1,16 @@
-import React from 'react';
-import Hero from '../sections/Hero';
-import About from '../sections/About';
-import Skills from '../sections/Skills';
-import Certifications from '../sections/Certifications';
-import Projects from '../sections/Projects';
-import Contact from '../sections/Contact';
-import Footer from '../sections/Footer';
+import React, { Suspense, lazy } from 'react';
+import { motion } from 'framer-motion';
 import Starfield from '../Starfield';
 import { useTheme } from '../context/ThemeContext';
+
+// Lazy load components for better performance
+const Hero = lazy(() => import('../sections/Hero'));
+const About = lazy(() => import('../sections/About'));
+const Skills = lazy(() => import('../sections/Skills'));
+const Certifications = lazy(() => import('../sections/Certifications'));
+const Projects = lazy(() => import('../sections/Projects'));
+const Contact = lazy(() => import('../sections/Contact'));
+const Footer = lazy(() => import('../sections/Footer'));
 
 const Page = () => {
   const { isDark } = useTheme();
@@ -26,6 +29,14 @@ const Page = () => {
 
   const currentTheme = isDark ? themes.dark : themes.light;
 
+  // Animation variants for subtle fade-in
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-50px" },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
   return (
     <>
       <Starfield 
@@ -35,13 +46,41 @@ const Page = () => {
         starColor={currentTheme.star}
       />
       <div>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Certifications />
-        <Contact />
-        <Footer />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div></div>}>
+          <motion.div {...fadeInUp}>
+            <Hero />
+          </motion.div>
+        </Suspense>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
+          <motion.div {...fadeInUp}>
+            <About />
+          </motion.div>
+        </Suspense>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
+          <motion.div {...fadeInUp}>
+            <Skills />
+          </motion.div>
+        </Suspense>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
+          <motion.div {...fadeInUp}>
+            <Projects />
+          </motion.div>
+        </Suspense>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
+          <motion.div {...fadeInUp}>
+            <Certifications />
+          </motion.div>
+        </Suspense>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div></div>}>
+          <motion.div {...fadeInUp}>
+            <Contact />
+          </motion.div>
+        </Suspense>
+        <Suspense fallback={<div className="min-h-[20vh] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div></div>}>
+          <motion.div {...fadeInUp}>
+            <Footer />
+          </motion.div>
+        </Suspense>
       </div>
     </>
   );

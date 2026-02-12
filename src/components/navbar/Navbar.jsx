@@ -11,6 +11,7 @@ const Navbar = () => {
             <a href="#home" className="text-gray-300 hover:text-[#2afeb7] transition-colors dark:text-gray-300 light:text-gray-700">Home</a>
             <a href="#skills" className="text-gray-300 hover:text-[#2afeb7] transition-colors dark:text-gray-300 light:text-gray-700">Skills</a>
             <a href="#projects" className="text-gray-300 hover:text-[#2afeb7] transition-colors dark:text-gray-300 light:text-gray-700">Projects</a>
+            <a href="#certifications" className="text-gray-300 hover:text-[#2afeb7] transition-colors dark:text-gray-300 light:text-gray-700">Certificates</a>
             <a href="#contact" className="text-gray-300 hover:text-[#2afeb7] transition-colors dark:text-gray-300 light:text-gray-700">Contact</a>
             <ThemeToggle />
           </div>

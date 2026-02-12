@@ -1,84 +1,7 @@
 import ProjectsSlider from "./ProjectsSlider";
 import { useState } from "react";
 import ProjectGridCard from "./ProjectGridCard";
-
-const projects = [
-  {
-    id: 1,
-    title: "ToneVault",
-    tagline: "Cloud-based music library for streaming and offline playback.",
-    description:
-      "ToneVault allows users to store, stream, and share music with offline playback support, focusing on performance and smooth user experience.",
-    tech: ["React", "Web Audio API"],
-    challenges: ["Offline sync", "Audio performance"],
-    features: ["Streaming", "Offline playback", "Playlists"],
-    github: "https://github.com/Maurya-03/tonevault",
-    demo: "#",
-    status: "completed",
-    imageQuery: "music streaming dashboard UI",
-    imageAlt: "ToneVault project preview",
-  },
-  {
-    id: 2,
-    title: "Blog Platform",
-    tagline: "MDX posts with tags & search and a clean writing workflow.",
-    description:
-      "A simple publishing platform supporting MDX posts with tags and a client-side search experience.",
-    tech: ["Next.js", "MDX", "Search"],
-    challenges: ["Search indexing", "MDX parsing", "Content UX & typography"],
-    features: ["MDX content", "Tag filters", "Search results"],
-    github: "https://github.com/Maurya-03/blog-platform",
-    demo: "#",
-    status: "completed",
-    imageQuery: "clean blog platform mdx editor UI",
-    imageAlt: "Blog Platform preview",
-  },
-  {
-    id: 3,
-    title: "ShadowLens",
-    tagline: "Security analytics dashboard for threat detection.",
-    description:
-      "ShadowLens is a security-focused analytics platform designed to process logs and surface potential threats through dashboards.",
-    tech: ["Python", "Django", "PostgreSQL"],
-    challenges: ["Log volume", "Query performance"],
-    features: ["Threat alerts", "Security dashboards"],
-    github: "https://github.com/Maurya-03/shadowlens",
-    demo: "#",
-    status: "in-progress",
-    imageQuery: "cybersecurity analytics dashboard UI",
-    imageAlt: "ShadowLens project preview",
-  },
-  {
-    id: 4,
-    title: "TaskFlow",
-    tagline: "Kanban-style team task management system.",
-    description:
-      "TaskFlow helps teams manage tasks collaboratively using a Kanban-style workflow.",
-    tech: ["React", "Node.js"],
-    challenges: ["Realtime sync"],
-    features: ["Boards", "Team collaboration"],
-    github: "https://github.com/Maurya-03/taskflow",
-    demo: "#",
-    status: "in-progress",
-    imageQuery: "kanban task management board UI",
-    imageAlt: "TaskFlow project preview",
-  },
-  {
-    id: 5,
-    title: "BioNova",
-    tagline: "AI-powered bio-security monitoring platform.",
-    description:
-      "BioNova focuses on AI-driven bio-security monitoring with alerting and analytics.",
-    tech: ["Python", "AI"],
-    challenges: ["Prediction accuracy"],
-    features: ["Monitoring", "Alerts"],
-    github: "https://github.com/Maurya-03/bionova",
-    demo: "#",
-    status: "completed",
-    imageQuery: "biosecurity monitoring dashboard UI",
-    imageAlt: "BioNova project preview",
-  },
-];
+import { projects } from "../data/projectsData";
 
 export default function ProjectsSection() {
   const [showAll, setShowAll] = useState(false);
@@ -100,13 +23,13 @@ export default function ProjectsSection() {
       </div>
 
       <div style={{ marginTop: '4cm' }}>
-        <ProjectsSlider projects={projects} />
+        <ProjectsSlider projects={projects.filter(p => p.featured)} />
       </div>
 
       {/* View All Modal */}
       {showAll && (
         <div className="fixed inset-0 bg-black/70 dark:bg-black/70 light:bg-white/70 z-[150] flex items-center justify-center p-6" onClick={() => setShowAll(false)}>
-          <div className="bg-black/90 dark:bg-black/90 light:bg-white/90 backdrop-blur-md border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl p-6 max-w-6xl w-full max-h-[90vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-black/90 dark:bg-black/90 light:bg-white/90 backdrop-blur-md border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl p-6 max-w-6xl w-full max-h-[90vh] overflow-auto custom-scrollbar" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold text-[#2afeb7]">All Projects</h3>
               <button
@@ -132,7 +55,7 @@ export default function ProjectsSection() {
       {/* Project Detail Modal */}
       {selectedProject && (
         <div className="fixed inset-0 bg-black/70 dark:bg-black/70 light:bg-white/70 z-[150] flex items-center justify-center p-6" onClick={() => setSelectedProject(null)}>
-          <div className="bg-black/90 dark:bg-black/90 light:bg-white/90 backdrop-blur-md border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-black/90 dark:bg-black/90 light:bg-white/90 backdrop-blur-md border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-auto custom-scrollbar" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold text-[#2afeb7]">{selectedProject.title}</h3>
               <button

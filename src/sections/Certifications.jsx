@@ -13,7 +13,7 @@ const Certifications = () => {
     {
       title: "Google Generative AI",
       organization: "Google",
-      year: "2024",
+      year: "2025",
       link: "/Certificates/google-gen_AI.pdf"
     },
     {
@@ -25,25 +25,25 @@ const Certifications = () => {
     {
       title: "Agile Methodology",
       organization: "Infosys SpringBoard",
-      year: "2024",
+      year: "2025",
       link: "/Certificates/Agile Methodology Infosys SpringBoard.pdf"
     },
     {
       title: "CI & CD DevOps",
       organization: "Infosys SpringBoard",
-      year: "2024",
+      year: "2025",
       link: "/Certificates/CI & CD Devops Infosys SpringBoard.pdf"
     },
     {
       title: "DevOps Foundation",
       organization: "Infosys SpringBoard",
-      year: "2024",
+      year: "2025",
       link: "/Certificates/Devops Foundation Infosys SpringBoard.pdf"
     },
     {
       title: "Database Management System",
       organization: "Various",
-      year: "2023",
+      year: "2024",
       link: "/Certificates/Data Base Management System.pdf"
     }
   ];
@@ -101,7 +101,7 @@ const Certifications = () => {
         {/* View All Modal */}
         {showAll && (
           <div className="fixed inset-0 bg-black/70 dark:bg-black/70 light:bg-white/70 z-[150] flex items-center justify-center p-6" onClick={() => setShowAll(false)}>
-            <div className="bg-black/90 dark:bg-black/90 light:bg-white/90 backdrop-blur-md border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl p-6 max-w-6xl w-full max-h-[90vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="bg-black/90 dark:bg-black/90 light:bg-white/90 backdrop-blur-md border border-white/10 dark:border-white/10 light:border-black/10 rounded-xl p-6 max-w-6xl w-full max-h-[90vh] overflow-auto custom-scrollbar" onClick={(e) => e.stopPropagation()}>
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-bold text-[#2afeb7]">All Certifications</h3>
                 <button
