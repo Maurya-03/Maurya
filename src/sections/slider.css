@@ -253,6 +253,13 @@
   line-height: 1.4;
 }
 
+.project-description {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
 .action-buttons {
   margin-top: 32px;
   display: flex;

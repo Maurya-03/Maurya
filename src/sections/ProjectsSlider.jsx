@@ -88,7 +88,7 @@ export default function ProjectsSlider({ projects }) {
               className="project-details"
             >
               <h1 className="project-title">{projects[index].title}</h1>
-              <p className="project-summary">{projects[index].tagline}</p>
+              <p className="project-summary">{projects[index].shortDesc}</p>
 
               <h2 className="section-heading">Tech Stack</h2>
               <ul className="section-list">
@@ -97,19 +97,8 @@ export default function ProjectsSlider({ projects }) {
                 )) : null}
               </ul>
 
-              <h2 className="section-heading">Challenges</h2>
-              <ul className="section-list">
-                {Array.isArray(projects[index].challenges) ? projects[index].challenges.map((c) => (
-                  <li key={c}>{c}</li>
-                )) : null}
-              </ul>
-
-              <h2 className="section-heading">Features</h2>
-              <ul className="section-list">
-                {Array.isArray(projects[index].features) ? projects[index].features.map((f) => (
-                  <li key={f}>{f}</li>
-                )) : null}
-              </ul>
+              <h2 className="section-heading">Description</h2>
+              <p className="project-description">{projects[index].fullDesc}</p>
 
               <div className="action-buttons">
                 <a href={projects[index].github} className="btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
