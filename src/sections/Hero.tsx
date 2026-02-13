@@ -80,11 +80,7 @@ export default function Hero() {
         </div>
 
         <div className="flex gap-4 text-gray-600 dark:text-gray-400 light:text-gray-700 mt-[50px]">
-          <a
-            href="https://github.com/Maurya-03"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://github.com/Maurya-03" target="_blank" rel="noopener noreferrer">
             <Github className="w-5 h-5 hover:text-[#2afeb7] transition" />
           </a>
           <a

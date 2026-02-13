@@ -20,31 +20,31 @@ const Certifications = () => {
       title: "MongoDB Atlas",
       organization: "MongoDB",
       year: "2024",
-      link: "/Certificates/MongoDB Atlas.pdf"
+      link: "/Certificates/MongoDB%20Atlas.pdf"
     },
     {
       title: "Agile Methodology",
       organization: "Infosys SpringBoard",
       year: "2025",
-      link: "/Certificates/Agile Methodology Infosys SpringBoard.pdf"
+      link: "/Certificates/Agile%20Methodology%20Infosys%20SpringBoard.pdf"
     },
     {
       title: "CI & CD DevOps",
       organization: "Infosys SpringBoard",
       year: "2025",
-      link: "/Certificates/CI & CD Devops Infosys SpringBoard.pdf"
+      link: "/Certificates/CI%20%26%20CD%20Devops%20Infosys%20SpringBoard.pdf"
     },
     {
       title: "DevOps Foundation",
       organization: "Infosys SpringBoard",
       year: "2025",
-      link: "/Certificates/Devops Foundation Infosys SpringBoard.pdf"
+      link: "/Certificates/Devops%20Foundation%20Infosys%20SpringBoard.pdf"
     },
     {
       title: "Database Management System",
       organization: "Various",
       year: "2024",
-      link: "/Certificates/Data Base Management System.pdf"
+      link: "/Certificates/Data%20Base%20Management%20System.pdf"
     }
   ];
 
