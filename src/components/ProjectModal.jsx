@@ -8,7 +8,7 @@ export default function ProjectModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[160]" onClick={onClose}>
-      <div className="backdrop-blur-md bg-white/5 dark:bg-white/5 light:bg-black/5 max-w-2xl w-full p-6 rounded-xl relative border border-white/10 dark:border-white/10 light:border-black/5" onClick={(e) => e.stopPropagation()}>
+      <div className="backdrop-blur-md bg-white/5 dark:bg-white/5 light:bg-black/5 max-w-2xl w-full max-h-[90vh] overflow-auto custom-scrollbar p-4 sm:p-6 rounded-xl relative border border-white/10 dark:border-white/10 light:border-black/5" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-[#2afeb7] transition-colors"
@@ -16,7 +16,7 @@ export default function ProjectModal({
           ✕
         </button>
 
-        <h2 className="text-2xl font-bold text-[#2afeb7] mb-3">
+        <h2 className="text-xl sm:text-2xl font-bold text-[#2afeb7] mb-3 pr-8">
           {project.title}
         </h2>
 
@@ -36,13 +36,13 @@ export default function ProjectModal({
           ))}
         </div>
 
-        <div className="flex gap-3 items-center mb-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
           {project.github ? (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-4 py-2 bg-[#2afeb7] text-black rounded hover:bg-[#2afeb7]/80 transition-colors"
+              className="inline-block text-center px-4 py-2 bg-[#2afeb7] text-black rounded hover:bg-[#2afeb7]/80 transition-colors"
             >
               View Repository
             </a>
@@ -53,7 +53,7 @@ export default function ProjectModal({
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-4 py-2 border border-white/10 text-gray-200 rounded hover:bg-white/5 transition-colors"
+              className="inline-block text-center px-4 py-2 border border-white/10 text-gray-200 rounded hover:bg-white/5 transition-colors"
             >
               Live Demo
             </a>

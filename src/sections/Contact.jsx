@@ -23,7 +23,7 @@ const Contact = () => {
         <div className="flex flex-col items-start space-y-4">
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mauryacr05@gmail.com" target="_blank" className="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-[#2afeb7] transition-colors">mauryacr05@gmail.com</a>
           <a href="tel:+919845894189" className="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-[#2afeb7] transition-colors">+91 9845894189</a>
-          <div className="flex space-x-6 mt-6">
+          <div className="flex flex-wrap gap-6 mt-6">
             <a href="https://github.com/Maurya-03" target="_blank" className="text-gray-400 dark:text-gray-400 light:text-gray-700 hover:text-[#2afeb7] hover:scale-105 transition-all">
               <Github size={24} />
             </a>

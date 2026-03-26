@@ -30,9 +30,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center px-6 lg:px-10 transition-colors"
+      className="min-h-screen flex items-center px-4 sm:px-6 lg:px-10 pt-24 md:pt-28 transition-colors"
     >
-      <div className="max-w-7xl mx-auto flex">
+      <div className="max-w-7xl mx-auto flex w-full">
         <div className="w-full lg:w-[64%]">
           {/* Small intro */}
           <p className="text-sm tracking-wide text-gray-500 dark:text-gray-400 light:text-gray-700 mb-3">
@@ -40,18 +40,18 @@ export default function Hero() {
           </p>
 
           {/* Name */}
-          <h1 className="text-5xl font-bold tracking-tight text-[#2afeb7] mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#2afeb7] mb-4">
             Maurya C R
           </h1>
 
           {/* Typewriter role */}
-          <h2 className="text-xl font-medium text-gray-700 dark:text-gray-300 light:text-gray-700 h-8 mb-6">
+          <h2 className="text-lg sm:text-xl font-medium text-gray-700 dark:text-gray-300 light:text-gray-700 min-h-8 mb-6">
             {text}
             <span className="text-[#2afeb7]">|</span>
           </h2>
 
           {/* Description */}
-          <p className="text-base leading-relaxed text-gray-600 dark:text-gray-400 light:text-gray-700 mb-10">
+          <p className="text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-400 light:text-gray-700 mb-8 sm:mb-10 max-w-2xl">
             I specialize in crafting secure, scalable, and efficient web
             applications, blending modern design with powerful backend
             technologies. With a passion for creating intuitive user experiences
@@ -60,10 +60,10 @@ export default function Hero() {
           </p>
 
           {/* CTA + Socials */}
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             <a
               href="#contact"
-              className="px-6 py-3 text-sm font-medium border border-[#2afeb7] text-[#2afeb7] hover:bg-[#2afeb7] hover:text-black transition"
+              className="w-full sm:w-auto text-center px-6 py-3 text-sm font-medium border border-[#2afeb7] text-[#2afeb7] hover:bg-[#2afeb7] hover:text-black transition"
             >
               Contact Me
             </a>
@@ -73,14 +73,14 @@ export default function Hero() {
                 href="/files/Maurrya.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 text-sm font-medium border border-[#2afeb7] text-[#2afeb7] hover:bg-[#2afeb7] hover:text-black transition"
+                className="w-full sm:w-auto text-center px-6 py-3 text-sm font-medium border border-[#2afeb7] text-[#2afeb7] hover:bg-[#2afeb7] hover:text-black transition"
               >
                 Resume
               </a>
             </div>
           </div>
 
-          <div className="flex gap-4 text-gray-600 dark:text-gray-400 light:text-gray-700 mt-[50px]">
+          <div className="flex gap-4 text-gray-600 dark:text-gray-400 light:text-gray-700 mt-10 sm:mt-12">
             <a
               href="https://github.com/Maurya-03"
               target="_blank"

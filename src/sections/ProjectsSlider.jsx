@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ProjectVisualCard from "./ProjectVisualCard";
 import "./slider.css";
@@ -6,6 +6,17 @@ import "./slider.css";
 export default function ProjectsSlider({ projects }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState("next");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const apply = (event) => setIsMobile(event.matches);
+
+    setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener("change", apply);
+
+    return () => mediaQuery.removeEventListener("change", apply);
+  }, []);
 
   const prev = () => {
     setDirection("prev");
@@ -36,7 +47,23 @@ export default function ProjectsSlider({ projects }) {
               zIndex: 0,
             };
 
-            if (offset === 0) {
+            if (isMobile) {
+              style = {
+                transform: "translate(0,0) scale(0.92)",
+                opacity: 0,
+                filter: "blur(0)",
+                zIndex: 0,
+              };
+
+              if (offset === 0) {
+                style = {
+                  transform: "translate(0,0) scale(1)",
+                  opacity: 1,
+                  filter: "none",
+                  zIndex: 3,
+                };
+              }
+            } else if (offset === 0) {
               style = {
                 transform: "translate(0,0) scale(1.35)",
                 opacity: 1,
