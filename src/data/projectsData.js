@@ -106,4 +106,25 @@ export const projects = [
     demo: null,
     featured: false,
   },
+  {
+    id: 7,
+    title: "Second Brain OS",
+    image: "/images/projects/Second_Brain.png",
+    shortDesc: "Local-first RAG knowledge system with FastAPI, Next.js, ChromaDB, and Ollama.",
+    fullDesc:
+      "Second Brain OS lets you ingest documents, code, notes, and PDFs, then ask questions against your own data with a local LLM. Features include streaming chat, file management, session memory, and a knowledge graph view.",
+    tech: [
+      "FastAPI",
+      "Next.js 14",
+      "ChromaDB",
+      "Ollama",
+      "Python 3.10+",
+      "Node.js 18+",
+      "NetworkX",
+      "D3.js"
+    ],
+    github: "https://github.com/Maurya-03/Second_Brain",
+    demo: null,
+    featured: false,
+  }
 ];

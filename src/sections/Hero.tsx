@@ -70,7 +70,7 @@ export default function Hero() {
 
             <div className="flex items-center gap-6">
               <a
-                href="/files/Maurrya.pdf"
+                href="/files/Maurya.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto text-center px-6 py-3 text-sm font-medium border border-[#2afeb7] text-[#2afeb7] hover:bg-[#2afeb7] hover:text-black transition"
