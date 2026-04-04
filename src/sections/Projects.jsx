@@ -9,8 +9,8 @@ export default function ProjectsSection() {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   return (
-    <section id="projects" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto transition-colors">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 sm:mb-12">
+    <section id="projects" className="relative py-20 sm:py-24 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto transition-colors">
+      <div className="relative z-30 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 sm:mb-12">
         <div>
           <p className="text-sm text-gray-500 dark:text-gray-400 light:text-gray-500 mb-2">My Work</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2afeb7]">Projects</h2>
@@ -23,7 +23,7 @@ export default function ProjectsSection() {
         </button>
       </div>
 
-      <div className="mt-10 sm:mt-12">
+      <div className="relative z-10 mt-10 sm:mt-12">
         <ProjectsSlider projects={projects.filter(p => p.featured)} />
       </div>
 

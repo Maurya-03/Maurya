@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import Starfield from '../Starfield';
+import MoonOrbitScene from '../components/MoonOrbitScene';
 import { useTheme } from '../context/ThemeContext';
 
 // Lazy load components for better performance
@@ -45,6 +46,7 @@ const Page = () => {
         backgroundColor={currentTheme.bg}
         starColor={currentTheme.star}
       />
+      <MoonOrbitScene />
       <div>
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div></div>}>
           <motion.div {...fadeInUp}>

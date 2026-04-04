@@ -7,6 +7,16 @@
     @apply scroll-smooth;
   }
 
+  body.dark-theme {
+    background-color: #000;
+    color: #fff;
+  }
+
+  body.light-theme {
+    background-color: #f0f4ff;
+    color: #1a1a2e;
+  }
+
   /* Performance optimizations */
   * {
     box-sizing: border-box;
@@ -36,6 +46,93 @@
       transition-duration: 0.01ms !important;
     }
   }
+}
+
+* {
+  transition: background-color 0.8s ease, color 0.5s ease;
+}
+
+#terminal-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: min(80vw, 960px);
+  height: min(60vh, 640px);
+  background: rgba(0, 5, 10, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid #00ffff;
+  padding: 20px;
+  font-family: "Fira Code", "Courier New", monospace;
+  color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 110;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+}
+
+#terminal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#terminal-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+}
+
+.terminal-title {
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.terminal-history {
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.terminal-line {
+  margin: 0 0 8px;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid rgba(0, 255, 255, 0.3);
+  padding-top: 10px;
+}
+
+.terminal-prompt {
+  opacity: 0.9;
+}
+
+#terminal-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #00ffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+#terminal-input::placeholder {
+  color: rgba(0, 255, 255, 0.45);
 }
 
 /* Critical CSS for above-the-fold content */

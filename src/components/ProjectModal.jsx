@@ -20,6 +20,14 @@ export default function ProjectModal({
           {project.title}
         </h2>
 
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-48 sm:h-64 object-cover rounded-lg mb-4 border border-white/10 dark:border-white/10 light:border-black/10"
+          />
+        ) : null}
+
         <p className="text-gray-600 dark:text-gray-400 light:text-gray-600 mb-4">
           {project.fullDesc}
         </p>
