@@ -10,13 +10,16 @@ import {
   FaReact,
 } from "react-icons/fa";
 import {
+  SiCanva,
   SiC,
   SiCplusplus,
   SiDjango,
+  SiGodotengine,
   SiMongodb,
   SiMysql,
   SiNextdotjs,
   SiPostgresql,
+  SiUnity,
   SiUnrealengine,
   SiWebflow,
 } from "react-icons/si";
@@ -41,11 +44,14 @@ const Skills = () => {
       { name: "PostgreSQL", icon: SiPostgresql },
     ],
     Design: [
+      { name: "Canva", icon: SiCanva },
       { name: "Figma", icon: FaFigma },
       { name: "Webflow", icon: SiWebflow },
       { name: "UI/UX Design", icon: FaReact },
     ],
     Other: [
+      { name: "Godot", icon: SiGodotengine },
+      { name: "Unity", icon: SiUnity },
       { name: "Unreal Engine", icon: SiUnrealengine },
       { name: "Git", icon: FaGitAlt },
     ],

@@ -69,6 +69,12 @@ TASK COMPLETION RULES:
   - README.md file exists and is up to date
   - User is provided with clear instructions to debug/launch the project
 
+SKILL PREFERENCES:
+
+- For design tasks, treat Canva as a preferred tool and reference it when it is relevant.
+- For other creative or game-development tasks, include Godot and Unity as preferred tools when they fit the request.
+- If a task is clearly outside design, Godot, or Unity, do not force those tools into the workflow.
+
 Before starting a new task in the above plan, update progress in the plan.
 
 - Work through each checklist item systematically.
