@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { useTheme } from "../context/ThemeContext";
+import { isDesktopLikeDevice } from "../utils/device";
 
 const escapeSettings = {
 	startX: 7.5,
@@ -16,10 +17,7 @@ const escapeSettings = {
 const MoonOrbitScene = () => {
 	const { isDark } = useTheme();
 	const getIsDesktop = () => {
-		if (typeof window === "undefined") return true;
-		const wideEnough = window.matchMedia("(min-width: 1024px)").matches;
-		const finePointer = window.matchMedia("(pointer: fine)").matches;
-		return wideEnough && finePointer;
+		return isDesktopLikeDevice();
 	};
 
 	const [isDesktop, setIsDesktop] = useState(getIsDesktop);

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { isMobileLikeDevice } from "./utils/device";
 
 const Starfield = ({
   speed = 0.2,
@@ -20,7 +21,7 @@ const Starfield = ({
     const getOptimizedStarCount = () => {
       if (typeof window === "undefined") return starCount;
 
-      const isMobile = window.innerWidth < 768;
+      const isMobile = isMobileLikeDevice();
       const isLowEnd =
         typeof navigator !== "undefined" &&
         navigator.hardwareConcurrency &&

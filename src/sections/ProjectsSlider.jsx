@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ProjectVisualCard from "./ProjectVisualCard";
+import { isMobileLikeDevice } from "../utils/device";
 import "./slider.css";
 
 export default function ProjectsSlider({ projects = [] }) {
@@ -9,13 +10,16 @@ export default function ProjectsSlider({ projects = [] }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const apply = (event) => setIsMobile(event.matches);
+    const apply = () => setIsMobile(isMobileLikeDevice());
 
-    setIsMobile(mediaQuery.matches);
-    mediaQuery.addEventListener("change", apply);
+    apply();
+    window.addEventListener("resize", apply);
+    window.addEventListener("orientationchange", apply);
 
-    return () => mediaQuery.removeEventListener("change", apply);
+    return () => {
+      window.removeEventListener("resize", apply);
+      window.removeEventListener("orientationchange", apply);
+    };
   }, []);
 
   useEffect(() => {
