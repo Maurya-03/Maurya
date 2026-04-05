@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useMemo } from "react";
+import React, { useEffect, useRef } from "react";
 
 const Starfield = ({
   speed = 0.2,
@@ -9,16 +9,6 @@ const Starfield = ({
 }) => {
   const canvasRef = useRef(null);
 
-  // Optimize star count based on device performance and screen size
-  const optimizedStarCount = useMemo(() => {
-    const isMobile = window.innerWidth < 768;
-    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
-    
-    if (isLowEnd) return Math.min(starCount * 0.3, 50);
-    if (isMobile) return Math.min(starCount * 0.6, 100);
-    return starCount;
-  }, [starCount]);
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -26,6 +16,20 @@ const Starfield = ({
     const ctx = canvas.getContext("2d");
     let animationFrameId;
     let stars = [];
+
+    const getOptimizedStarCount = () => {
+      if (typeof window === "undefined") return starCount;
+
+      const isMobile = window.innerWidth < 768;
+      const isLowEnd =
+        typeof navigator !== "undefined" &&
+        navigator.hardwareConcurrency &&
+        navigator.hardwareConcurrency <= 2;
+
+      if (isLowEnd) return Math.min(Math.floor(starCount * 0.3), 50);
+      if (isMobile) return Math.min(Math.floor(starCount * 0.6), 100);
+      return starCount;
+    };
 
     const handleResize = () => {
       const width = window.innerWidth;
@@ -37,12 +41,14 @@ const Starfield = ({
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
-      ctx.scale(dpr * globalScale, dpr * globalScale);
+      ctx.setTransform(dpr * globalScale, 0, 0, dpr * globalScale, 0, 0);
       initStars(width / globalScale, height / globalScale);
     };
 
     const initStars = (virtualWidth, virtualHeight) => {
       stars = [];
+      const optimizedStarCount = getOptimizedStarCount();
+
       for (let i = 0; i < optimizedStarCount; i++) {
         const layer = Math.floor(Math.random() * 3); 
         let z, size;
@@ -115,7 +121,7 @@ const Starfield = ({
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [speed, backgroundColor, starColor, optimizedStarCount, globalScale]);
+  }, [speed, backgroundColor, starColor, starCount, globalScale]);
 
   return (
     <canvas

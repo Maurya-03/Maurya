@@ -7,6 +7,30 @@
     @apply scroll-smooth;
   }
 
+  body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background-color: #050505;
+    color: #fff;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+
+  img,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.75rem;
+  }
+
   body.dark-theme {
     background-color: #000;
     color: #fff;
@@ -133,6 +157,18 @@
 
 #terminal-input::placeholder {
   color: rgba(0, 255, 255, 0.45);
+}
+
+@media (max-width: 640px) {
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  #terminal-overlay {
+    width: min(92vw, 960px);
+    height: min(72vh, 640px);
+    padding: 16px;
+  }
 }
 
 /* Critical CSS for above-the-fold content */

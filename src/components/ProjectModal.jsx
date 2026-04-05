@@ -1,56 +1,58 @@
-export default function ProjectModal({
-  projects,
-  index,
-  onClose,
-  setIndex,
-}) {
+export default function ProjectModal({ projects, index, onClose, setIndex }) {
   const project = projects[index];
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[160]" onClick={onClose}>
-      <div className="backdrop-blur-md bg-white/5 dark:bg-white/5 light:bg-black/5 max-w-2xl w-full max-h-[90vh] overflow-auto custom-scrollbar p-4 sm:p-6 rounded-xl relative border border-white/10 dark:border-white/10 light:border-black/5" onClick={(e) => e.stopPropagation()}>
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-[#2afeb7] transition-colors"
-        >
-          ✕
-        </button>
-
-        <h2 className="text-xl sm:text-2xl font-bold text-[#2afeb7] mb-3 pr-8">
-          {project.title}
-        </h2>
+    <div
+      className="fixed inset-0 z-[160] flex items-start justify-center overflow-y-auto bg-black/70 p-3 sm:items-center sm:p-6"
+      onClick={onClose}
+    >
+      <div
+        className="my-8 max-h-[88svh] w-full max-w-2xl overflow-auto rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md dark:border-white/10 dark:bg-white/5 light:border-black/5 light:bg-black/5 sm:my-0 sm:p-6 custom-scrollbar"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="mb-4 flex items-start justify-between gap-4">
+          <h2 className="pr-8 text-xl font-bold text-[#2afeb7] sm:text-2xl">
+            {project.title}
+          </h2>
+          <button
+            onClick={onClose}
+            className="text-sm text-gray-400 transition-colors hover:text-[#2afeb7] dark:text-gray-400 light:text-gray-600"
+            aria-label="Close project modal"
+          >
+            Close
+          </button>
+        </div>
 
         {project.image ? (
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-48 sm:h-64 object-cover rounded-lg mb-4 border border-white/10 dark:border-white/10 light:border-black/10"
+            className="mb-4 h-44 w-full rounded-lg border border-white/10 object-cover dark:border-white/10 light:border-black/10 sm:h-64"
           />
         ) : null}
 
-        <p className="text-gray-600 dark:text-gray-400 light:text-gray-600 mb-4">
+        <p className="mb-4 text-sm leading-7 text-gray-600 dark:text-gray-400 light:text-gray-600 sm:text-base">
           {project.fullDesc}
         </p>
-        
 
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tech.map((t) => (
+        <div className="mb-6 flex flex-wrap gap-2">
+          {project.tech.map((tech) => (
             <span
-              key={t}
-              className="text-xs px-2 py-1 border border-black/10 dark:border-white/10 light:border-black/10 text-gray-600 dark:text-gray-400 light:text-gray-600"
+              key={tech}
+              className="border border-black/10 px-2 py-1 text-xs text-gray-600 dark:border-white/10 dark:text-gray-400 light:border-black/10 light:text-gray-600"
             >
-              {t}
+              {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
           {project.github ? (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-center px-4 py-2 bg-[#2afeb7] text-black rounded hover:bg-[#2afeb7]/80 transition-colors"
+              className="inline-block rounded bg-[#2afeb7] px-4 py-2 text-center text-black transition-colors hover:bg-[#2afeb7]/80"
             >
               View Repository
             </a>
@@ -61,19 +63,31 @@ export default function ProjectModal({
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-center px-4 py-2 border border-white/10 text-gray-200 rounded hover:bg-white/5 transition-colors"
+              className="inline-block rounded border border-white/10 px-4 py-2 text-center text-gray-200 transition-colors hover:bg-white/5"
             >
               Live Demo
             </a>
           ) : null}
         </div>
 
-        <div className="flex justify-between">
-          <button className="text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-[#2afeb7] transition-colors" onClick={() => setIndex((i) => (i - 1 + projects.length) % projects.length)}>
-            &lt; Prev
+        <div className="flex items-center justify-between gap-4">
+          <button
+            className="text-sm text-gray-400 transition-colors hover:text-[#2afeb7] dark:text-gray-400 light:text-gray-600"
+            onClick={() =>
+              setIndex((currentIndex) =>
+                (currentIndex - 1 + projects.length) % projects.length
+              )
+            }
+          >
+            Prev
           </button>
-          <button className="text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-[#2afeb7] transition-colors" onClick={() => setIndex((i) => (i + 1) % projects.length)}>
-            Next &gt;
+          <button
+            className="text-sm text-gray-400 transition-colors hover:text-[#2afeb7] dark:text-gray-400 light:text-gray-600"
+            onClick={() =>
+              setIndex((currentIndex) => (currentIndex + 1) % projects.length)
+            }
+          >
+            Next
           </button>
         </div>
       </div>

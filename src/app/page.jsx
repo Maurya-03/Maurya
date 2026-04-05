@@ -47,7 +47,7 @@ const Page = () => {
         starColor={currentTheme.star}
       />
       <MoonOrbitScene />
-      <div>
+      <main className="relative overflow-x-clip">
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div></div>}>
           <motion.div {...fadeInUp}>
             <Hero />
@@ -83,7 +83,7 @@ const Page = () => {
             <Footer />
           </motion.div>
         </Suspense>
-      </div>
+      </main>
     </>
   );
 };

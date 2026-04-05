@@ -6,7 +6,7 @@ import Navbar from '../components/navbar/Navbar';
 const Layout = ({ children }) => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen text-white dark:text-white light:text-black">
+      <div className="min-h-[100svh] overflow-x-clip text-white dark:text-white light:text-black">
         <Navbar />
         {children}
       </div>

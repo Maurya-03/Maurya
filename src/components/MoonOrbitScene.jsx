@@ -176,7 +176,10 @@ const MoonOrbitScene = () => {
 				return;
 
 			darkModeRef.current = darkMode;
-			moonRef.current.visible = darkMode;
+			moonRef.current.visible = darkMode && isDesktopRef.current;
+			if (moonGroupRef.current) {
+				moonGroupRef.current.visible = isDesktopRef.current;
+			}
 
 			if (darkMode) {
 				moonMaterialRef.current.map = moonTextureRef.current;
@@ -215,6 +218,14 @@ const MoonOrbitScene = () => {
 			setIsDesktop(desktop);
 			if (!desktop) {
 				setTerminalActive(false);
+			}
+			mount.style.display = desktop ? "block" : "none";
+			renderer.domElement.style.display = desktop ? "block" : "none";
+			if (moonRef.current) {
+				moonRef.current.visible = darkModeRef.current && desktop;
+			}
+			if (moonGroupRef.current) {
+				moonGroupRef.current.visible = desktop;
 			}
 
 			camera.aspect = window.innerWidth / window.innerHeight;
@@ -336,7 +347,10 @@ const MoonOrbitScene = () => {
 			return;
 
 		darkModeRef.current = isDark;
-		moonRef.current.visible = isDark;
+		moonRef.current.visible = isDark && isDesktop;
+		if (moonGroupRef.current) {
+			moonGroupRef.current.visible = isDesktop;
+		}
 
 		if (isDark) {
 			moonMaterialRef.current.map = moonTextureRef.current;
@@ -391,6 +405,7 @@ const MoonOrbitScene = () => {
 					inset: 0,
 					zIndex: -1,
 					pointerEvents: "none",
+					display: isDesktop ? "block" : "none",
 				}}
 			/>
 			<div
