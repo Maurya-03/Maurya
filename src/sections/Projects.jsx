@@ -11,9 +11,12 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-10 transition-colors"
+      className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 transition-colors"
+      style={{ paddingTop: "calc(5rem - 1in)", paddingBottom: "5rem" }}
     >
-      <div className="relative z-30 mb-10 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-center sm:justify-between">
+      <div
+        className="relative z-30 mb-10 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-center sm:justify-between"
+      >
         <div>
           <p className="mb-2 text-sm text-gray-500 dark:text-gray-400 light:text-gray-500">
             My Work
@@ -30,7 +33,7 @@ export default function ProjectsSection() {
         </button>
       </div>
 
-      <div className="relative z-10 mt-10 sm:mt-12">
+      <div className="relative z-10 mt-20 sm:mt-28">
         <ProjectsSlider projects={projects.filter((project) => project.featured)} />
       </div>
 
